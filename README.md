@@ -7,7 +7,8 @@ State Management: Redux Toolkit with LocalStorage persistence
 Styling: SCSS (BEM Methodology)
 Forms & Validation: Formik & Yup
 Icons: Lucide React
-Routing: React Router Dom v6
+
+vercel link : https://promage-management-system.vercel.app/
 
 Folder Structure-------->
 src/
@@ -47,6 +48,16 @@ Upcoming Alerts: A dynamic notification system in the Topbar highlights mileston
 4. Search, Filtering & Performance
 Instant Search: Filter through large project lists by name or manager instantly.
 Performance Optimization: Utilizes useMemo for heavy filtering and sorting logic to ensure a high-performance user experience.
+
+
+
+
+
+
+
+
+
+
 
 
 # React + TypeScript + Vite
