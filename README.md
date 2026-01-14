@@ -1,3 +1,54 @@
+---------------------- Promage - Enterprise Project Management Dashboard---------------
+Promage is a high-fidelity, professional project management dashboard built to demonstrate advanced React patterns, strict TypeScript implementation, and scalable state management.
+
+Tech Stack---------->
+Frontend: React 18 with TypeScript
+State Management: Redux Toolkit with LocalStorage persistence
+Styling: SCSS (BEM Methodology)
+Forms & Validation: Formik & Yup
+Icons: Lucide React
+Routing: React Router Dom v6
+
+Folder Structure-------->
+src/
+├── assets/             # Static images, brand assets, and global icons
+├── components/         # Reusable UI components
+│   ├── ui/             # Atomic components (Buttons, Modals, StatCards)
+│   └── layout/         # Layout components (Sidebar, Topbar)
+├── features/           # Domain-driven feature modules
+│   ├── dashboard/      # Analytics logic and Progress Gauges
+│   ├── projects/       # Project summaries, forms, and detail views
+│   └── tasks/          # Global task aggregation and management
+├── store/              # Redux Toolkit centralized state
+│   ├── slices/         # State logic (projectSlice.ts)
+│   ├── hooks.ts        # Type-safe useAppDispatch & useAppSelector
+│   └── index.ts        # Store configuration and Middleware
+├── styles/             # Global SCSS (Variables, Mixins, Reset)
+├── types/              # Centralized TypeScript interfaces (project.ts)
+├── utils/              # Helper functions (Date formatting, LocalStorage)
+├── App.tsx             # Routing and Global Providers
+└── main.tsx            # Application entry point
+
+
+1. Project Management (CRUD)
+Full Lifecycle: Create, Read, Update, and Delete projects with real-time UI updates.
+Dynamic Analytics: High-level overview cards calculate total revenue, project counts, and resource allocation dynamically.
+Persistence: Custom Redux setup ensures state is synchronized with localStorage, preventing data loss on browser refresh.
+
+2. Advanced Task Tracking
+Hierarchical Management: Add tasks directly within a specific project's detail view.
+Automated Progress: Project completion percentage is derived automatically based on the status of child tasks (Todo, In Progress, Done).
+Global View: A centralized "Tasks" engine aggregates all tasks across the entire organization.
+
+3. Smart Reminders & Notifications
+Milestone Tracking: Set time-sensitive reminders for critical project phases.
+Upcoming Alerts: A dynamic notification system in the Topbar highlights milestones due within the next 7 days.
+
+4. Search, Filtering & Performance
+Instant Search: Filter through large project lists by name or manager instantly.
+Performance Optimization: Utilizes useMemo for heavy filtering and sorting logic to ensure a high-performance user experience.
+
+
 # React + TypeScript + Vite
 
 This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
