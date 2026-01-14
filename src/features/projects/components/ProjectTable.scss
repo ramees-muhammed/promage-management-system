@@ -1,0 +1,227 @@
+
+$primary-orange: #ff6b35;
+$bg-beige: #f3e9dc;
+$text-dark: #1a1a1a;
+$text-gray: #64748b;
+$border-light: #e2e8f0;
+$white: #ffffff;
+
+.project-table-container {
+  background: $white;
+  border-radius: 24px; 
+  padding: 24px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.02);
+
+  .table-header {
+    margin-bottom: 24px;
+    h2 {
+      font-size: 1.25rem;
+      color: $text-dark;
+      font-weight: 700;
+      margin: 0;
+    }
+  }
+
+  // Search and Filter Bar
+  .table-controls {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 24px;
+    gap: 16px;
+
+    .search-bar {
+      display: flex;
+      align-items: center;
+      background: #fff;
+      border: 1px solid $border-light;
+      padding: 10px 16px;
+      border-radius: 12px;
+      flex: 1;
+      max-width: 400px;
+      transition: border-color 0.2s;
+
+      &:focus-within {
+        border-color: $primary-orange;
+      }
+
+      svg {
+        color: #9ca3af;
+        margin-right: 12px;
+      }
+
+      input {
+        border: none;
+        outline: none;
+        width: 100%;
+        font-size: 0.9rem;
+        color: $text-dark;
+        &::placeholder {
+          color: #9ca3af;
+        }
+      }
+    }
+
+    .table-filters {
+      display: flex;
+      gap: 12px;
+
+      .filter-item {
+        display: flex;
+        align-items: center;
+        background: $white;
+        border: 1px solid $border-light;
+        padding: 8px 14px;
+        border-radius: 12px;
+        gap: 8px;
+        color: $text-gray;
+        cursor: pointer;
+
+        .filter-select {
+          border: none;
+          outline: none;
+          background: transparent;
+          font-size: 0.85rem;
+          font-weight: 600;
+          cursor: pointer;
+          color: $text-dark;
+        }
+
+        &:hover {
+          border-color: #cbd5e1;
+        }
+      }
+    }
+  }
+}
+
+.project-table {
+  width: 100%;
+  border-collapse: separate;
+  border-spacing: 0;
+  text-align: left;
+
+  th {
+    padding: 16px;
+    color: $text-gray;
+    font-size: 0.85rem;
+    font-weight: 600;
+    border-bottom: 1px solid #f1f5f9;
+    text-transform: capitalize;
+  }
+
+  tr {
+    transition: background 0.2s;
+    &:hover {
+      background-color: #fdfaf7; // Subtle beige hover
+    }
+  }
+
+  td {
+    padding: 18px 16px;
+    border-bottom: 1px solid #f8fafc;
+    font-size: 0.9rem;
+    vertical-align: middle;
+  }
+
+  .project-name {
+    font-weight: 600;
+    color: $text-dark;
+  }
+
+  .project-manager {
+    color: $text-dark;
+  }
+
+  .project-date {
+    color: $text-gray;
+  }
+
+  // Status Badges
+  .status-badge {
+    display: inline-block;
+    padding: 6px 12px;
+    border-radius: 20px;
+    font-size: 0.75rem;
+    font-weight: 700;
+    text-align: center;
+    min-width: 90px;
+
+    &.completed { background: #dcfce7; color: #166534; }
+    &.delayed { background: #fef3c7; color: #92400e; }
+    &.at-risk { background: #fee2e2; color: #991b1b; }
+    &.planned { background: #f1f5f9; color: #475569; }
+    &.in-progress { background: #e0f2fe; color: #075985; }
+  }
+
+  // Progress Bar
+  .progress-wrapper {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+
+    .progress-bar-container {
+      flex: 1;
+      height: 8px;
+      background: #f1f5f9;
+      border-radius: 10px;
+      overflow: hidden;
+      min-width: 100px;
+
+      .progress-fill {
+        height: 100%;
+        background: #22c55e; // Default green
+        border-radius: 10px;
+        transition: width 0.4s ease;
+      }
+    }
+    .progress-text {
+      font-size: 0.85rem;
+      font-weight: 700;
+      color: $text-dark;
+      width: 40px;
+    }
+  }
+
+  // Action Buttons
+  .action-buttons {
+    display: flex;
+    gap: 10px;
+    justify-content: flex-start;
+  }
+
+  .icon-btn {
+    background: $white;
+    border: 1px solid $border-light;
+    padding: 8px;
+    border-radius: 10px;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: all 0.2s;
+
+    &.view {
+      color: #3b82f6;
+      &:hover {
+        background: #eff6ff;
+        border-color: #3b82f6;
+      }
+    }
+
+    &.delete {
+      color: #ef4444;
+      &:hover {
+        background: #fef2f2;
+        border-color: #ef4444;
+      }
+    }
+  }
+
+  .empty-state {
+    text-align: center;
+    padding: 60px 0;
+    color: #94a3b8;
+    font-weight: 500;
+  }
+}

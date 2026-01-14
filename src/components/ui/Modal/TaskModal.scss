@@ -1,0 +1,108 @@
+$primary-orange: #ff6b35;
+$text-dark: #1a1a1a;
+$text-muted: #64748b;
+$error-red: #e11d48;
+
+.task-modal-container {
+  background: white;
+  width: 100%;
+  max-width: 500px; // Task modals should be narrower than Project modals
+  border-radius: 16px;
+  box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.15);
+  overflow: hidden;
+  animation: modalSlideUp 0.3s ease-out;
+
+  .task-modal-header {
+    padding: 24px;
+    border-bottom: 1px solid #f1f5f9;
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+
+    .title-area {
+      h3 { margin: 0 0 4px 0; font-size: 1.25rem; color: $text-dark; }
+      p { margin: 0; color: $text-muted; font-size: 0.85rem; }
+    }
+
+    .close-btn {
+      background: none;
+      border: none;
+      color: $text-muted;
+      cursor: pointer;
+      &:hover { color: $text-dark; }
+    }
+  }
+
+  .form-body {
+    padding: 24px;
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+  }
+
+  .form-group {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+    position: relative;
+    padding-bottom: 18px; // Space for error msg
+
+    label { font-weight: 600; font-size: 0.85rem; color: $text-dark; }
+
+    input, select, textarea {
+      padding: 10px 14px;
+      border: 1px solid #e2e8f0;
+      border-radius: 8px;
+      font-size: 0.95rem;
+      transition: all 0.2s;
+
+      &:focus {
+        outline: none;
+        border-color: $primary-orange;
+        box-shadow: 0 0 0 3px rgba(255, 107, 53, 0.1);
+      }
+    }
+
+    &.error {
+      input, select { border-color: $error-red; background-color: #fff1f2; }
+      .error-msg {
+        position: absolute;
+        bottom: 0;
+        left: 0;
+        color: $error-red;
+        font-size: 0.75rem;
+        font-weight: 500;
+      }
+    }
+  }
+
+  .task-modal-footer {
+    padding: 20px 24px;
+    background: #f8fafc;
+    display: flex;
+    justify-content: flex-end;
+    gap: 12px;
+
+    button {
+      padding: 10px 20px;
+      border-radius: 8px;
+      font-weight: 600;
+      cursor: pointer;
+      border: none;
+      transition: all 0.2s;
+    }
+
+    .btn-secondary { background: #e2e8f0; color: #475569; &:hover { background: #cbd5e1; } }
+    .btn-primary { 
+      background: $primary-orange; 
+      color: white; 
+      &:hover { background: darken($primary-orange, 10%); }
+      &:disabled { opacity: 0.6; cursor: not-allowed; }
+    }
+  }
+}
+
+@keyframes modalSlideUp {
+  from { opacity: 0; transform: translateY(20px); }
+  to { opacity: 1; transform: translateY(0); }
+}

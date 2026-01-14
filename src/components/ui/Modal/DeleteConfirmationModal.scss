@@ -1,0 +1,80 @@
+$text-dark: #1a1a1a;
+$text-muted: #64748b;
+$error-red: #ef4444;
+
+.delete-modal-container {
+  background: white;
+  width: 100%;
+  max-width: 420px;
+  border-radius: 16px;
+  box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.2);
+  animation: modalPop 0.25s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+
+  .delete-modal-header {
+    padding: 24px 24px 0;
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+
+    .icon-box {
+      width: 48px;
+      height: 48px;
+      background: #fef2f2;
+      border-radius: 12px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .close-btn {
+      background: none;
+      border: none;
+      color: #94a3b8;
+      cursor: pointer;
+      &:hover { color: $text-dark; }
+    }
+  }
+
+  .delete-modal-body {
+    padding: 20px 24px;
+    h3 { margin: 0 0 12px; font-size: 1.25rem; color: $text-dark; }
+    p { margin: 0; color: $text-muted; line-height: 1.5; font-size: 0.95rem; }
+  }
+
+  .delete-modal-footer {
+    padding: 20px 24px 24px;
+    display: flex;
+    gap: 12px;
+
+    button {
+      flex: 1;
+      padding: 12px;
+      border-radius: 10px;
+      font-weight: 600;
+      cursor: pointer;
+      border: none;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 8px;
+      transition: all 0.2s;
+    }
+
+    .btn-secondary {
+      background: #f1f5f9;
+      color: #475569;
+      &:hover { background: #e2e8f0; }
+    }
+
+    .btn-danger {
+      background: $error-red;
+      color: white;
+      &:hover { background: darken($error-red, 5%); }
+    }
+  }
+}
+
+@keyframes modalPop {
+  from { opacity: 0; transform: scale(0.95); }
+  to { opacity: 1; transform: scale(1); }
+}

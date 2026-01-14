@@ -1,0 +1,140 @@
+$primary-orange: #ff6b35;
+$bg-beige: #f3e9dc;
+$text-dark: #1a1a1a;
+$text-gray: #64748b;
+
+.project-detail-page {
+  animation: fadeIn 0.3s ease;
+
+  .detail-nav {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 24px;
+
+    button {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      border: none;
+      padding: 10px 16px;
+      border-radius: 8px;
+      cursor: pointer;
+      font-weight: 600;
+    }
+
+    .btn-back { background: transparent; color: $text-gray; &:hover { color: $text-dark; } }
+    .btn-edit-main { background: $text-dark; color: white; &:hover { background: lighten($text-dark, 10%); } }
+  }
+
+  .detail-grid {
+    display: grid;
+    grid-template-columns: 1fr 320px;
+    gap: 24px;
+    
+    @media (max-width: 1024px) { grid-template-columns: 1fr; }
+  }
+
+  // Common Card Style
+  section {
+    background: white;
+    border-radius: 20px;
+    padding: 30px;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.02);
+    margin-bottom: 24px;
+  }
+
+  .summary-card {
+    .summary-header {
+      display: flex;
+      justify-content: space-between;
+      margin-bottom: 20px;
+
+      h1 { font-size: 2rem; margin: 8px 0; }
+    }
+
+    .status-pill {
+      padding: 4px 12px;
+      border-radius: 20px;
+      font-size: 0.75rem;
+      font-weight: 700;
+      text-transform: uppercase;
+      &.planned { background: #e2e8f0; color: #475569; }
+      &.in-progress { background: #dcfce7; color: #166534; }
+    }
+
+    .progress-circle-box {
+      text-align: center;
+      .percent { display: block; font-size: 1.8rem; font-weight: 800; color: $primary-orange; }
+      .label { font-size: 0.75rem; color: $text-gray; }
+    }
+
+    .meta-info {
+      display: flex;
+      gap: 24px;
+      margin: 20px 0;
+      color: $text-gray;
+      .info-item { display: flex; align-items: center; gap: 8px; font-size: 0.9rem; }
+    }
+  }
+
+  .tasks-section {
+    .section-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-bottom: 20px;
+    }
+
+    .task-item {
+      display: flex;
+      align-items: center;
+      gap: 15px;
+      padding: 16px;
+      border-bottom: 1px solid #f1f5f9;
+      
+      .task-info {
+        flex: 1;
+        display: flex;
+        flex-direction: column;
+        span { font-weight: 500; }
+        small { color: $text-gray; }
+      }
+
+      .task-status { font-size: 0.75rem; padding: 2px 8px; border-radius: 4px; background: #f8fafc; }
+      svg.done { color: #22c55e; }
+    }
+  }
+
+  .reminders-card {
+    h3 { margin-bottom: 20px; }
+    .reminder-entry {
+      display: flex;
+      gap: 12px;
+      margin-bottom: 20px;
+      .reminder-icon { color: $primary-orange; }
+      .reminder-text {
+        p { margin: 0; font-weight: 500; font-size: 0.95rem; }
+        small { color: $text-gray; }
+      }
+    }
+  }
+}
+
+.avatar-group {
+  display: flex;
+  .avatar {
+    width: 32px;
+    height: 32px;
+    border-radius: 50%;
+    background: #000;
+    color: white;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 0.8rem;
+    border: 2px solid white;
+    margin-right: -8px;
+  }
+}
+
+@keyframes fadeIn { from { opacity: 0; transform: translateY(10px); } to { opacity: 1; transform: translateY(0); } }

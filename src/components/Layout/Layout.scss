@@ -1,0 +1,48 @@
+// components/Layout/Layout.scss
+.app-layout {
+  display: grid;
+  // Fixed sidebar width, remaining space for content
+  grid-template-columns: 260px 1fr; 
+//   min-height: 100vh;
+  background-color: #f3e9dc;
+
+  .main-viewport {
+    display: flex;
+    flex-direction: column;
+    // height: 100vh;
+    overflow-y: auto; // Allows the main content to scroll independently
+  }
+
+  .content-container {
+    background-color: white;
+    min-height: calc(100dvh - 70px);
+    padding: 24px 40px;
+    flex: 1; // Takes up remaining vertical space
+    width: 100%;
+    max-width: 1400px; // Optional: keeps the form from getting too wide on huge monitors
+    margin: 0 auto;    // Centers the container
+  }
+  
+
+  .modal-overlay {
+  position: fixed;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.7);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 2000;
+  backdrop-filter: blur(4px);
+  padding: 20px;
+}
+
+.modal-content {
+  background: white;
+  width: 100%;
+  max-width: 800px;
+  border-radius: 16px;
+  box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.2);
+  max-height: 90vh;
+  overflow-y: auto;
+}
+}

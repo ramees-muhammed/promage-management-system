@@ -1,0 +1,351 @@
+/* ProjectForm.scss */
+
+// Theme Variables
+$primary-orange: #ff6b35;
+$border-color: #e2e8f0;
+$text-main: #1a1a1a;
+$text-muted: #64748b;
+$bg-light: #f8fafc;
+
+.project-form-modal {
+  // Styles for the backdrop if needed (optional)
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 1000;
+  padding: 1rem;
+}
+
+.project-form-container {
+  background: #ffffff;
+  padding: 2.5rem;
+  border-radius: 12px;
+  max-width: 850px;
+  width: 100%;
+  max-height: 90vh;
+  overflow-y: auto;
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
+
+  .project-form-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    margin-bottom: 2rem;
+    padding-bottom: 1.5rem;
+    border-bottom: 1px solid #f1f5f9;
+
+    .title-area {
+      h2 {
+        margin: 0 0 0.5rem 0;
+        font-size: 1.5rem;
+        color: $text-main;
+      }
+      p {
+        margin: 0;
+        color: $text-muted;
+        font-size: 0.9rem;
+      }
+    }
+
+    .close-icon-btn {
+      background: none;
+      border: none;
+      color: $text-muted;
+      cursor: pointer;
+      padding: 4px;
+      transition: color 0.2s;
+
+      &:hover {
+        color: $primary-orange;
+      }
+    }
+  }
+}
+
+.project-form {
+ .form-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr); // Two equal columns
+  column-gap: 2rem; // Increased gap for better readability
+  row-gap: 1.5rem;
+  margin-bottom: 1.5rem;
+  align-items: end; // This aligns the actual inputs even if labels have different heights
+
+  @media (max-width: 640px) {
+    grid-template-columns: 1fr;
+  }
+}
+
+.form-group {
+  display: flex;
+  flex-direction: column;
+  gap: 0.6rem;
+  width: 100%;
+
+  label {
+    font-weight: 600;
+    color: $text-main;
+    font-size: 0.85rem;
+    margin-bottom: 2px; // Fine-tune label spacing
+    display: block;
+  }
+
+  input, select {
+    height: 45px; // Force consistent height for alignment
+    box-sizing: border-box;
+  }
+}
+
+.form-group-full {
+  margin-top: 1.5rem;
+  display: flex;
+  flex-direction: column;
+  gap: 0.6rem;
+  
+  textarea {
+    min-height: 100px;
+    resize: vertical;
+  }
+}
+
+  .form-group,
+  .form-group-full {
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+
+    label {
+      font-weight: 600;
+      color: $text-main;
+      font-size: 0.85rem;
+    }
+
+    input,
+    textarea,
+    select {
+      padding: 0.8rem 1rem;
+      border: 1px solid $border-color;
+      border-radius: 8px;
+      font-size: 0.95rem;
+      transition: all 0.2s ease;
+      width: 100%;
+
+      &:focus {
+        outline: none;
+        border-color: $primary-orange;
+        box-shadow: 0 0 0 3px rgba(255, 107, 53, 0.1);
+      }
+    }
+
+    /* Specific Select Styling */
+    select {
+      appearance: none;
+      background-color: #fff;
+      cursor: pointer;
+      background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='18' height='18' viewBox='0 0 24 24' fill='none' stroke='%2394a3b8' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='m6 9 6 6 6-6'/%3E%3C/svg%3E");
+      background-repeat: no-repeat;
+      background-position: right 12px center;
+      padding-right: 2.5rem;
+    }
+  }
+
+  .form-group-full {
+    grid-column: 1 / -1;
+  }
+
+  .input-with-icon {
+    position: relative;
+    display: flex;
+    align-items: center;
+
+    svg {
+      position: absolute;
+      right: 12px;
+      color: $text-muted;
+      pointer-events: none;
+    }
+  }
+
+  /* Reminder Section */
+  .reminder-section {
+    margin-top: 1rem;
+    padding-top: 1.5rem;
+    border-top: 1px solid #f1f5f9;
+
+    .section-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-bottom: 1.2rem;
+
+      h3 {
+        font-size: 1.1rem;
+        color: #334155;
+        margin: 0;
+      }
+    }
+
+    .reminders-list {
+      display: flex;
+      flex-direction: column;
+      gap: 0.75rem;
+    }
+
+    .reminder-row {
+      display: grid;
+      grid-template-columns: 160px 1fr 40px;
+      gap: 1rem;
+      background: $bg-light;
+      padding: 0.75rem;
+      border-radius: 8px;
+      align-items: center;
+
+      @media (max-width: 500px) {
+        grid-template-columns: 1fr;
+        
+        .delete-icon-btn {
+          justify-content: flex-end;
+        }
+      }
+    }
+  }
+
+  /* Buttons and Actions */
+  .form-actions {
+    display: flex;
+    justify-content: flex-end;
+    gap: 1rem;
+    margin-top: 2.5rem;
+
+    button {
+      padding: 0.8rem 2rem;
+      border-radius: 8px;
+      font-weight: 600;
+      cursor: pointer;
+      border: none;
+      transition: all 0.2s ease;
+
+      &:active {
+        transform: scale(0.98);
+      }
+    }
+
+    .btn-cancel {
+      background-color: #f1f5f9;
+      color: #475569;
+      &:hover {
+        background-color: #e2e8f0;
+      }
+    }
+
+    .btn-create {
+      background-color: $primary-orange !important;
+      color: #ffffff;
+      &:hover {
+        background-color: darken($primary-orange, 10%);
+      }
+    }
+  }
+}
+
+.add-button {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  background: #fffcfb;
+  border: 1.5px dashed $primary-orange;
+  color: $primary-orange;
+  padding: 0.5rem 1rem;
+  border-radius: 8px;
+  font-size: 0.85rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.2s;
+
+  &:hover {
+    background: rgba(255, 107, 53, 0.05);
+  }
+}
+
+.delete-icon-btn {
+  background: none;
+  border: none;
+  color: #94a3b8;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 8px;
+  border-radius: 6px;
+
+  &:hover {
+    color: #ef4444;
+    background: rgba(239, 68, 68, 0.05);
+  }
+}
+
+
+/* Add this at the top of your SCSS file for animations */
+@keyframes shake {
+  0%, 100% { transform: translateX(0); }
+  25% { transform: translateX(-4px); }
+  75% { transform: translateX(4px); }
+}
+
+.form-group, .form-group-full {
+  // 1. Maintain layout stability: reserve space for the error message
+  padding-bottom: 1.2rem; 
+  position: relative;
+
+  &.error {
+    label {
+      color: #e11d48; // Red label on error
+    }
+
+    input, select, textarea {
+      border-color: #fb7185;
+      background-color: #fff1f2;
+      animation: shake 0.2s ease-in-out 0s 2;
+
+      &:focus {
+        border-color: #e11d48;
+        box-shadow: 0 0 0 3px rgba(225, 29, 72, 0.1);
+      }
+    }
+
+    .input-with-icon svg {
+      color: #fb7185; // Icon turns red too
+    }
+  }
+
+  // 2. Style the error message
+  .error-msg {
+    position: absolute;
+    bottom: 0;
+    left: 2px;
+    font-size: 0.75rem;
+    font-weight: 500;
+    color: #e11d48;
+    display: flex;
+    align-items: center;
+    
+    // Optional: Add a small bullet or icon before the text
+    &::before {
+      content: '●';
+      margin-right: 4px;
+      font-size: 8px;
+    }
+  }
+}
+
+// Ensure multi-select handles error state visually
+.multi-select-box {
+  &.error {
+    border-color: #fb7185;
+  }
+}

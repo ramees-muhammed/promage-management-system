@@ -1,0 +1,109 @@
+$primary-orange: #ff6b35;
+$bg-beige: #f3e9dc;
+$text-main: #1a1a1a;
+$text-muted: #64748b;
+
+.reminders-page {
+  animation: fadeIn 0.4s ease-out;
+
+  .reminders-header {
+    margin-bottom: 32px;
+    h1 { font-size: 1.75rem; font-weight: 700; color: $text-main; margin-bottom: 8px; }
+    p { color: $text-muted; }
+  }
+}
+
+.reminders-grid {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+.reminder-card {
+  background: white;
+  border-radius: 16px;
+  padding: 24px;
+  display: flex;
+  align-items: center;
+  gap: 20px;
+  border: 1px solid transparent;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.02);
+  transition: all 0.3s ease;
+
+  &:hover {
+    transform: translateX(5px);
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.05);
+  }
+
+  &.is-upcoming {
+    border-left: 5px solid $primary-orange;
+    background: linear-gradient(to right, #fffcfb, #ffffff);
+
+    .reminder-card__icon {
+      background: rgba(255, 107, 53, 0.1);
+      color: $primary-orange;
+    }
+  }
+
+  &__icon {
+    width: 48px;
+    height: 48px;
+    background: #f8fafc;
+    border-radius: 12px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: $text-muted;
+  }
+
+  &__info {
+    flex: 1;
+
+    .date-tag {
+      display: flex;
+      align-items: center;
+      gap: 6px;
+      font-size: 0.8rem;
+      font-weight: 600;
+      color: $text-muted;
+      margin-bottom: 8px;
+
+      .urgent-badge {
+        background: #fee2e2;
+        color: #ef4444;
+        padding: 2px 8px;
+        border-radius: 12px;
+        font-size: 0.7rem;
+        margin-left: 8px;
+      }
+    }
+
+    h3 { font-size: 1.1rem; color: $text-main; margin: 0 0 4px 0; }
+    
+    .project-link {
+      font-size: 0.85rem;
+      color: $text-muted;
+      strong { color: $primary-orange; font-weight: 600; }
+    }
+  }
+
+  &__action { color: #cbd5e1; }
+}
+
+
+.pulse-icon {
+  animation: pulse 2s infinite;
+}
+
+@keyframes pulse {
+  0% { transform: scale(1); }
+  50% { transform: scale(1.1); }
+  100% { transform: scale(1); }
+}
+
+.empty-reminders {
+  text-align: center;
+  padding: 80px 0;
+  color: #cbd5e1;
+  svg { margin-bottom: 16px; opacity: 0.5; }
+}
